@@ -1,0 +1,27 @@
+#!/usr/bin/python3
+project = """|                        _          _
+|    __ _  ___  ___   __| | ___ ___(_) ___ 
+|   / _` |/ _ \/ _ \ / _` |/ _ \ __| |/ __|
+|  | (_| |  __/ (_) | (_| |  __\__ \ | (__ 
+|   \__, |\___|\___/ \__,_|\___|___/_|\___|
+|   |___/                          v. 0.4.3            
+|
+|             Compendium Manager
+"""
+
+import compendium
+
+from compendium import app
+from compendium import filestore
+
+# start service if not running
+from compendium.service import init_if_needed
+
+if __name__ == '__main__':
+    print(project)
+    # start the ui socket content server
+    init_if_needed.check()
+
+    # finally show the window
+    app = app.App()
+    app.run()

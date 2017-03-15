@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="grid.css"></link>
+        <link rel="stylesheet" href="style.css"></link>
+
+        <script type="text/javascript" src="shortcut.js"></script>
+        <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="jquery-ui.min.js"></script>
+
+    </head>
+    <body>
+        <div id="header" class="grid_row">
+            <div class="tab grid_3 active" id="dashboard">
+                Dashboard 
+            </div>
+            <div class="tab grid_3" id="network">
+                Network
+            </div>
+            <div class="tab grid_3" id="media">
+                Media
+            </div>
+            <div class="tab grid_3" id="operations">
+                Operations
+            </div>
+        </div>
+        <div class="content">
+            <div id="dashboard_target" class="">
+                <div id="choose_project" class="">
+                    <form id="project_form"></form>
+                    <!-- <div class="grid_row darkbar">
+                        <p class="grid_4 help">choose existing, or create new</p>
+                        <input placeholder="New Project Name" autofocus type="text" id="project_title" class="grid_4" form="project_form">
+                        <button id="create_project" class="grid_2" disabled  form="project_form">Create Project</button>
+                    </div> -->
+                    <ul id="projects"></ul>
+                </div>
+                <div id="importer" class="hide">
+                    <div class="grid_row darkbar">
+                        <div class="grid_3" id="info">
+                            <p><span>Total: </span><span id="total"></span></p>
+                            <p><span>Completed: </span><span id="completed"></span></p>
+                        </div>
+                        <div class="grid_3 hide" id="summary">
+                            <p><strong id="summary_summary">Summary</strong></p>
+                            <div id="summary_body"></div>
+                        </div>
+                        <p id="target_project" class="grid_6"></p>
+                        <div class="grid_1"></div>
+                        <button class="grid_2" onclick="Hub.send('stop_importer')">Stop Importer</button>
+                    </div>
+                    <div class="grid_row bar">
+                        <div class="grid_12">
+                            <div class="progress" id="progress"><div></div></div>
+                        </div>
+                    </div>
+                    <div id="cards" class="grid_row"></div>
+                </div>    
+            </div>
+
+            <div id="network_target" class="hide">
+                <div class="grid_row darkbar">
+                    <p>Network Drives will appear here...</p>
+                    <button onclick="addNetworkDrive()">Add</button>
+                </div>
+
+            <div class="tree">
+	<ul>
+		<li>
+			<a href="#">Parent</a>
+			<ul>
+				<li>
+					<a href="#">Child</a>
+					<ul>
+						<li>
+							<a href="#">Grand Child</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">Child</a>
+					<ul>
+
+						<li>
+							<a href="#">Grand Child</a>
+							<ul>
+								<li>
+									<a href="#">Great Grand Child</a>
+								</li>
+								<li>
+									<a href="#">Great Grand Child</a>
+								</li>
+								<li>
+									<a href="#">Great Grand Child</a>
+								</li>
+							</ul>
+						</li>
+						<li><a href="#">Grand Child</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+                </ul>
+            </div>
+    <div id="media_target" class="hide">
+
+        <div id="preview-container">
+            <video id="preview" height="180" width="320"></video>
+	    <div class="progressbg"><div class="progress" id="playerProgress"></div></div>
+	    <div class="controls">I'll pop some controls here...</div>
+        </div>
+
+        <ul id="browser_projects"></ul>
+
+        <div id="browser_main" class="hide">
+            <div id="screen"><video id="player"></div>
+            <div id="east" class="grid_row">
+                <form id="clip_title_form">
+                    <input id="clip_title" class="grid_3"></input>
+                </form>
+                    <div id="metadata" class="grid_3 grid_row">
+                    </div>
+      <!--          <form id="tag_form">
+                <div id="tag_block" class="grid_row">
+                <div id="add_tag" class="grid_2 grid_cell">
+                    <input id="tag_value" placeholder="Tag"></input>
+                    <ul class="matches" id="tag_matches"></ul>
+                </div>
+                <button id="tag_button" class="grid_1 arrow" disabled>+</button>
+                <ul id="tags" class="grid_3 tags inset"></ul>
+           .    </div>
+                </form>
+          -->      <div id="back" onclick="$(this).parent().parent().fadeOut()">&larr; Back</div>
+            </div>
+            <div id="south"></div>
+        </div>
+    </div>
+
+            <div id="operations_target" class="hide">
+            <p class="wip">Operations: sorry, nothing to see here just yet!</p>
+            </div>
+        </div>
+    </body>
+
+    <script type="text/javascript" src="compendium.js"></script>
+
+</html>

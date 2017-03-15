@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=Compendium Manager
+Exec=/home/tarantula/Packages/compendium.spack/cm-gtk
+Icon=/home/tarantula/Packages/compendium.spack/data/logo.png

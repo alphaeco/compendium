@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Compendiun</title>
+        
+        <link rel="stylesheet" href="Resources/css/style.css"/>
+        <link rel="stylesheet" href="Resources/css/sort.css"/>
+        
+    </head>
+    <body>
+        <!--
+        <div id="browser">
+            can we use some form of frame to directly embed the browser application or a browser widget here?
+            <div class="grip">
+                Browse &darr;
+            </div>
+        </div>
+        -->
+        <div id="head">
+            <ul>
+                <li>Home</li>
+                <li class="active">Video</li>
+            </ul>
+        </div>
+        <div id="sort-container">
+            <div id="preview-container">
+			    <video id="preview" width="480" height="270" autoplay></video>
+			    <div class="progressbg"><div class="progress"></div></div>
+			    <div class="controls">I'll pop some controls here...</div>
+            </div>
+        </div>
+        <div id="clip-view" class="">
+            <div id="sort-preview">
+                <video id="sort-preview-video" volume="0"></video>
+                <div class="info">
+                    Something...
+                </div>
+                <div class="controls">
+                    <a id="createslice">Create Slice</a>
+                </div>
+                <div class="progress">
+                </div>
+                
+                <div class="slicecontrols">
+                    <div class="start" data-frame="100">
+                
+                    </div>
+                    <div class="stop" data-frame="200">
+                
+                    </div>
+                </div>
+                
+                <div class="v-thumb"></div>
+            </div>
+            <div id="slices">
+                
+            </div>
+        </div>
+        <div id="buckets">
+            <div class="bucket" id="add-bucket" title="New Sequence...">
+            </div>
+            <div class="sequence">
+                <div class="slice">
+                    <div class="frame"></div>
+                    <div class="frame"></div>
+                </div>
+                <div class="slice">
+                
+                </div>
+                <div class="slice">
+                
+                </div>
+                <div class="slice">
+                
+                </div>
+                <div class="slice">
+                
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
