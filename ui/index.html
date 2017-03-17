@@ -1,13 +1,13 @@
 <!doctype html>
 <html>
     <head>
-        <link rel="stylesheet" href="grid.css"></link>
-        <link rel="stylesheet" href="style.css"></link>
+        <link rel="stylesheet" href="css/grid.css"></link>
+        <link rel="stylesheet" href="css/style.css"></link>
 
-        <script type="text/javascript" src="shortcut.js"></script>
-        <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
-        <script type="text/javascript" src="jquery-ui.min.js"></script>
-
+        <script type="text/javascript" src="js/shortcut.js"></script>
+        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+        <script tyle="text/javascript" src="js/fuse.min.js"></script>
     </head>
     <body>
         <div id="header" class="grid_row">
@@ -33,7 +33,18 @@
                         <input placeholder="New Project Name" autofocus type="text" id="project_title" class="grid_4" form="project_form">
                         <button id="create_project" class="grid_2" disabled  form="project_form">Create Project</button>
                     </div> -->
-                    <ul id="projects"></ul>
+                    <div class="widget">
+                        <img src="logo.png" style="width:250px;position:absolute;top:50px;left:0;padding-left:14%;"/>
+                    </div>
+                    <div class="widget">
+                        <p>Some fancy storage information here</p>
+                    </div>
+                    <div class="widget">
+                        <p>Some playlist information down here</p>
+                    </div>
+                    <div class="widget">
+                        <p>Some cool networking graphs of something here</p>
+                    </div>
                 </div>
                 <div id="importer" class="hide">
                     <div class="grid_row darkbar">
@@ -61,28 +72,41 @@
             <div id="network_target" class="hide">
                 <div class="grid_row darkbar">
                     <p>Network Drives will appear here...</p>
-                    <button onclick="addNetworkDrive()">Add</button>
+                    <button onclick="addNetworkDrive()">Refresh</button>
+                    <button onclick="findNetworkDrive()">Search</button>
                 </div>
-
+            
             <div class="tree">
-	<ul>
-		<li>
-			<a href="#">Parent</a>
+	        <ul>
+		    <li>
+		        <a href="#"><input type="text" value="network.ssid" disabled/></a>
 			<ul>
 				<li>
-					<a href="#">Child</a>
+					<a href="#">Device0</a>
 					<ul>
 						<li>
-							<a href="#">Grand Child</a>
+							<a href="#">Media</a>
 						</li>
 					</ul>
 				</li>
+                               <li>
+					<a href="#">Device1</a>
+					<ul>
+						<li>
+							<a href="#">Media</a>
+						</li>
+                                                <li>
+							<a href="#">Passport</a>
+						</li>
+					</ul>
+				</li>
+                                
 				<li>
-					<a href="#">Child</a>
+					<a href="#">Enviromental Controls</a>
 					<ul>
 
 						<li>
-							<a href="#">Grand Child</a>
+							<a href="#">Media</a>
 							<ul>
 								<li>
 									<a href="#">Great Grand Child</a>
@@ -95,7 +119,7 @@
 								</li>
 							</ul>
 						</li>
-						<li><a href="#">Grand Child</a></li>
+						<li><a href="#">Device2</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -112,6 +136,7 @@
 	    <div class="controls">I'll pop some controls here...</div>
         </div>
 
+        <input type="text" id="browser_projects_search" placeholder="Search..."/>
         <ul id="browser_projects"></ul>
 
         <div id="browser_main" class="hide">
@@ -139,11 +164,11 @@
     </div>
 
             <div id="operations_target" class="hide">
-            <p class="wip">Operations: sorry, nothing to see here just yet!</p>
+            <p class="wip">Terminals, and Logs, and Settings oh my!</p>
             </div>
         </div>
     </body>
 
-    <script type="text/javascript" src="compendium.js"></script>
+    <script type="text/javascript" src="js/compendium.js"></script>
 
 </html>
