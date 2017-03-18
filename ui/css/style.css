@@ -183,6 +183,10 @@ ul {
         background:-webkit-linear-gradient(top, #444, #666);
 }
 
+#preview-container .controls li {
+    background: #aaa;
+}
+
 #preview{
         margin-bottom:-3px;
         background:black;

@@ -1,0 +1,8 @@
+{
+    "hostname":"hackBot",
+    "paircode":"3219740" ,
+    "cpu": {
+        "core1": "35%",
+        "core2": "12%"
+    }
+}

@@ -34,10 +34,11 @@
                         <button id="create_project" class="grid_2" disabled  form="project_form">Create Project</button>
                     </div> -->
                     <div class="widget">
-                        <img src="logo.png" style="width:250px;position:absolute;top:50px;left:0;padding-left:14%;"/>
+                        <img src="img/logo.png" style="width:250px;position:absolute;top:50px;left:0;padding-left:14%;"/>
                     </div>
                     <div class="widget">
                         <p>Some fancy storage information here</p>
+                        <a href="#network">Network Drives</a>
                     </div>
                     <div class="widget">
                         <p>Some playlist information down here</p>
@@ -79,7 +80,7 @@
             <div class="tree">
 	        <ul>
 		    <li>
-		        <a href="#"><input type="text" value="network.ssid" disabled/></a>
+		        <a href="#"><input type="text" value="Alpha Eco" disabled/></a>
 			<ul>
 				<li>
 					<a href="#">Device0</a>
@@ -129,11 +130,15 @@
                 </ul>
             </div>
     <div id="media_target" class="hide">
-
+    <!-- <div class="grid_row darkbar">
+                        <p class="grid_4 help">choose existing, or create new</p>
+                        <input placeholder="New Project Name" autofocus type="text" id="project_title" class="grid_4" form="project_form">
+                        <button id="create_project" class="grid_2" disabled  form="project_form">Create Project</button>
+                    </div> -->
         <div id="preview-container">
             <video id="preview" height="180" width="320"></video>
 	    <div class="progressbg"><div class="progress" id="playerProgress"></div></div>
-	    <div class="controls">I'll pop some controls here...</div>
+	    <ul class="controls"></ul>
         </div>
 
         <input type="text" id="browser_projects_search" placeholder="Search..."/>
