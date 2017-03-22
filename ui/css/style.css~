@@ -224,7 +224,6 @@ ul {
     left:0; right:20%;
     margin:auto;
     z-index:100;
-    padding:12px;
     
 }
 

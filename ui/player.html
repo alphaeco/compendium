@@ -1,99 +1,9 @@
-/* basic ui functions
- * for compendium browser
- */
-
-shortcut.add("shift+a", function (){
-    alert("shortcut");
-});
-
-$currentTab = "dashboard";
-
-// tabs 
-$(".tab").click(function() {
-    $( this ).siblings().removeClass("active");
-    $( this ).addClass("active");
-
-    $currentTab = $(this).attr("id");
-    $targetName = $(this).attr("id") + "_target";
-
-    $(".content").children().addClass("hide");
-    $target = $("#" + $targetName);
-
-    $target.removeClass("hide");
-
-});
-
-/* media */
-
-var localMedia = [
-    { title: "Star Trek - First Contract",
-       path: "/media/local/video/starTrek/firstContact.mp4",
-       desc: "desc...",
-         id: 1,
-       type: "video", 
-      cover: "img/video_placeholder.jpg"
-    },
-    { title: "What is Life - untitled",
-       path: "/media/local/youtube/life.mp4",
-       desc: "youtube desc...",
-         id: 1221,
-       type: "video",
-      cover: "img/video_placeholder.jpg"
-    }
-];
-
-$("#browser_projects_search").bind('input', function(){
-
-    $("#browser_projects").html(" ");
-
-    localMedia.forEach(function (entry) {
-        if(entry.title) {
-            $("#browser_projects").append("<li class='project'><img class='thumbnail' src='" +
-             entry.cover + "'/><div class='info'><p class='title'>" + entry.title + "</p></div></li>");
-
-        }
-    });
-});
-
-$("#browser_projects").sortable();
-$("#preview-container").draggable();
-
-$("#preview-container").droppable({
-    drop: function (event, ui) {
-        ui.draggable.fadeOut("slow");
-        $(".controls").append("<li class='playlist-item'>" + ui.draggable.html() + "</li>");
-        ui.draggable.fadeIn("slow");
-    }
-});
-
-// establish video player
-VideoPlayer = $("#mediaPlayer").get(0);
-
-shortcut.add("k", function () {
-    VideoPlayer.paused ? VideoPlayer.play() : VideoPlayer.pause();
-});
-
-// RequestAnimFrame: a browser API for getting smooth animations
-window.requestAnimFrame = (function(){
-  return  window.requestAnimationFrame       || 
-		  window.webkitRequestAnimationFrame || 
-		  window.mozRequestAnimationFrame    || 
-		  window.oRequestAnimationFrame      || 
-		  window.msRequestAnimationFrame     ||  
-		  function( callback ){
-			window.setTimeout(callback, 1000 / 60);
-		  };
-})();
-
-var canvas = document.getElementById("mediaCanvas");
-
-// Initialize the context of the canvas
-var ctx = canvas.getContext("2d");
-
-// Set the canvas width and height to occupy full window
-var W = window.innerWidth, H = window.innerHeight;
-canvas.width = W;
-canvas.height = H;
+<!DOCTYPE html> 
+<html>
+<head>
+<title>HTML5 Video Destruction</title> 
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
 
 var video;
 var copy;
@@ -108,11 +18,10 @@ var SOURCERECT = {x:0, y:0, width:0, height:0};
 var PAINTRECT = {x:0, y:0, width:1000, height:600};
 
 function init(){
-   video = VideoPlayer;	
-	
-	copycanvas = document.getElementById('mediasourcecopy');
+	video = document.getElementById('sourcevid');
+	copycanvas = document.getElementById('sourcecopy');
 	copy = copycanvas.getContext('2d');
-	var outputcanvas = canvas;
+	var outputcanvas = document.getElementById('output');
 	draw = outputcanvas.getContext('2d');
 	setInterval("processFrame()", 33);
 }
@@ -308,3 +217,21 @@ function copyPixel(sImageData, sx, sy, dImageData, dx, dy){
 	dImageData.data[dpos+2] = sImageData.data[spos+2]; //B
 	dImageData.data[dpos+3] = sImageData.data[spos+3]; //A
 }
+</script>
+</head>
+
+<body onload="init()" style="margin:0px;">
+
+	<div style="display:">
+		<video id="sourcevid" autoplay="true" controls loop="true">
+			<source src="http://craftymind.com/factory/html5video/BigBuckBunny_640x360.mp4" type="video/mp4"/>
+		</video>
+		<canvas id="sourcecopy" width="640" height="360"></canvas>
+	</div>
+	<div><center>
+		<div style="z-index:1;position:relative;text-align:center;font-size:16px;font-weight:bold;width:1000px;top:60px;">Click video to blow it up!</div>
+		<canvas id="output" width="1000" height="600" onmousedown="dropBomb(event, this)" style="border: solid 5px #666666"></canvas><br/>You may need to reload the page if video isn't streaming properly. Video courtesy of <a href="http://www.bigbuckbunny.org/">Big Buck Bunny</a></center>
+	</div>
+
+</body>
+</html>

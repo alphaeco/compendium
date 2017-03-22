@@ -1,16 +1,23 @@
 <!doctype html>
 <html>
     <head>
+
         <link rel="stylesheet" href="css/grid.css"></link>
         <link rel="stylesheet" href="css/style.css"></link>
+        
+        <script type="text/javascript" src="js/Require.js"></script>
 
-        <script type="text/javascript" src="js/shortcut.js"></script>
-        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
-        <script type="text/javascript" src="js/jquery-ui.min.js"></script>
-        <script tyle="text/javascript" src="js/fuse.min.js"></script>
-    </head>
+        <script type="text/javascript"/>
+            console.log("~~~~~~~~~~~~ Reset ~~~~~~~~~~~~");
+        </script>
+
+     </head>
     <body>
+
         <div id="header" class="grid_row">
+            <div id="progress">
+                <div class="progressbar"></div>
+            </div>
             <div class="tab grid_3 active" id="dashboard">
                 Dashboard 
             </div>
@@ -24,17 +31,13 @@
                 Operations
             </div>
         </div>
+ 
         <div class="content">
             <div id="dashboard_target" class="">
                 <div id="choose_project" class="">
-                    <form id="project_form"></form>
-                    <!-- <div class="grid_row darkbar">
-                        <p class="grid_4 help">choose existing, or create new</p>
-                        <input placeholder="New Project Name" autofocus type="text" id="project_title" class="grid_4" form="project_form">
-                        <button id="create_project" class="grid_2" disabled  form="project_form">Create Project</button>
-                    </div> -->
+                    <form id="media_form"></form>
                     <div class="widget">
-                        <img src="img/logo.png" style="width:250px;position:absolute;top:50px;left:0;padding-left:14%;"/>
+                        <img onclick="runActiveLoad()" src="img/logo.png" style="width:250px;position:absolute;top:50px;left:0;padding-left:14%;"/>
                     </div>
                     <div class="widget">
                         <p>Some fancy storage information here</p>
@@ -42,6 +45,7 @@
                     </div>
                     <div class="widget">
                         <p>Some playlist information down here</p>
+                        <a href="player.html">player</a>
                     </div>
                     <div class="widget">
                         <p>Some cool networking graphs of something here</p>
@@ -71,7 +75,7 @@
             </div>
 
             <div id="network_target" class="hide">
-                <div class="grid_row darkbar">
+                <div class="grid_row lightbar">
                     <p>Network Drives will appear here...</p>
                     <button onclick="addNetworkDrive()">Refresh</button>
                     <button onclick="findNetworkDrive()">Search</button>
@@ -80,7 +84,7 @@
             <div class="tree">
 	        <ul>
 		    <li>
-		        <a href="#"><input type="text" value="Alpha Eco" disabled/></a>
+		        <a href="#"><input type="text" value="Alpha Eco" disabled /></a>
 			<ul>
 				<li>
 					<a href="#">Device0</a>
@@ -96,7 +100,7 @@
 						<li>
 							<a href="#">Media</a>
 						</li>
-                                                <li>
+                  <li>
 							<a href="#">Passport</a>
 						</li>
 					</ul>
@@ -130,25 +134,58 @@
                 </ul>
             </div>
     <div id="media_target" class="hide">
-    <!-- <div class="grid_row darkbar">
-                        <p class="grid_4 help">choose existing, or create new</p>
-                        <input placeholder="New Project Name" autofocus type="text" id="project_title" class="grid_4" form="project_form">
-                        <button id="create_project" class="grid_2" disabled  form="project_form">Create Project</button>
-                    </div> -->
-        <div id="preview-container">
+        <video id="mediaPlayer" style="display: none">
+		      <source src="http://craftymind.com/factory/html5video/BigBuckBunny_640x360.mp4" type="video/mp4"/>        
+        </video>
+	  	  <canvas id="mediasourcecopy" style="display: none" width="640" height="360"></canvas>        
+        
+        <canvas id="mediaCanvas"></canvas>    
+    
+            
+        <!-- <div class="grid_row darkbar">
+            <p class="grid_4 help">choose existing, or create new</p>
+            <input placeholder="New Project Name" autofocus type="text" id="project_title" class="grid_4" form="project_form">
+            <button id="create_project" class="grid_2" disabled  form="project_form">Create Project</button>
+        </div> -->
+        
+        
+        <!-- <div id="preview-container" class="hide">
             <video id="preview" height="180" width="320"></video>
-	    <div class="progressbg"><div class="progress" id="playerProgress"></div></div>
-	    <ul class="controls"></ul>
-        </div>
+	         <div class="progressbg"><div class="progress" id="playerProgress"></div></div>
+	         <ul class="controls"></ul>
+        </div> -->
 
+        <ul class="sidebar sidebar-media">        
+            <li>
+                <h2>Notifications</h2>
+                <div>
+                
+                </div>
+            </li>
+            <li>
+                <h2>Info Box</h2>
+                <div>
+                    <button onclick="init()">init</button>
+                    <button onclick="source()">source</button>
+                    <button onclick="">play/pause</button>
+                </div>
+            </li>
+            <li>
+                <h2>Properties</h2>
+                <div>
+                
+                </div>
+            </li>
+        </ul>
+        
         <input type="text" id="browser_projects_search" placeholder="Search..."/>
-        <ul id="browser_projects"></ul>
+        <ul id=""></ul>
 
         <div id="browser_main" class="hide">
-            <div id="screen"><video id="player"></div>
+            <div id="screen"><video id="player"></video></div>
             <div id="east" class="grid_row">
                 <form id="clip_title_form">
-                    <input id="clip_title" class="grid_3"></input>
+                    <input id="clip_title" class="grid_3"/>
                 </form>
                     <div id="metadata" class="grid_3 grid_row">
                     </div>
@@ -168,12 +205,49 @@
         </div>
     </div>
 
-            <div id="operations_target" class="hide">
-            <p class="wip">Terminals, and Logs, and Settings oh my!</p>
-            </div>
-        </div>
+    <div id="operations_target" class="hide">
+        <p class="wip">Terminals, and Logs, and Settings oh my!</p>
+        <ul id="term"></ul>
+    </div>
+    
+    </div>
     </body>
 
     <script type="text/javascript" src="js/compendium.js"></script>
+    
+    <script type="text/javascript"> 
+        var runActiveLoad = function () {
+                if ($("#header").hasClass("small")){
+                    $("#header").removeClass("small");
+                } else {
+                    $("#header").addClass("small");
+                }
+        };
+               
+        var progressUpdate = function  (value) {
+                $(".progressbar").width("0%").fadeIn("slow");
+                $(".progressbar").animate({
+                    "width": value + "%"
+                }, 5)};
+
+        shortcut.add("shift+h", function(){
+                runActiveLoad();
+        });
+        
+        shortcut.add("ctrl+r", function(){
+                var cnt = 1;
+                while(cnt < 101) {
+                    progressUpdate(cnt);
+                    cnt++
+                }
+        });
+         
+        var c_canvas = $("#mediaCanvas").get(0);
+        var context = c_canvas.getContext("2d");
+        
+        context.strokeStyle = "#4C4C4C";
+        context.stroke();         
+ 
+    </script>
 
 </html>

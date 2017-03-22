@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Name=Compendium Manager
+Exec=/home/tarantula/Packages/compendium.spack/cm-gtk
+Icon=/home/tarantula/Packages/compendium.spack/share/data/logo.png

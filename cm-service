@@ -1,0 +1,31 @@
+#!/usr/bin/python3
+
+project = """|                        _          _
+|    __ _  ___  ___   __| | ___ ___(_) ___ 
+|   / _` |/ _ \/ _ \ / _` |/ _ \ __| |/ __|
+|  | (_| |  __/ (_) | (_| |  __\__ \ | (__ 
+|   \__, |\___|\___/ \__,_|\___|___/_|\___|
+|   |___/                          v. 0.4.3            
+|
+|             Compendium Server
+"""
+
+from compendium import server
+from compendium.server import filestore
+
+DEV = True
+
+
+if __name__ == '__main__':
+    if DEV:
+        print(project)
+
+    files = filestore.Local()
+    files.load()
+    netfs = filestore.Network()
+
+    Server = server.Server()
+    Server.add("/network/", files)
+    Server.add("/local/", netfs)
+    Server.run()
+

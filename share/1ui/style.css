@@ -1,0 +1,209 @@
+@font-face {
+    font-family: 'alphaeco'; /*a name to be used later*/
+    src: url('fonts/CloisterBlack.ttf'); /*URL to font*/
+}
+
+*{
+	margin:0px;
+	padding:0px;
+}
+
+body{
+	font-family:"Ubuntu Light";
+	font-size:16px;
+	background-color:#154360;
+	color:white; 
+}
+
+img{
+	margin-bottom:-4px;
+}
+
+#clips{
+	display:inline-block;
+	width:172px;
+	padding:5px;
+	position:absolute;
+	top:0px;
+	left:0px;
+    border:1px solid;
+}
+
+#clips li{
+	padding:3px;
+	margin:2px;
+	background:-webkit-linear-gradient(top, #666, #555);
+	border-bottom:1px solid #444;
+	border-right:1px solid #444;
+	border-left:1px solid #777;
+	border-top:1px solid #777;
+	border-radius:5px;
+	box-shadow:0px 2px 5px 1px rgba(0,0,0,0.4);
+}
+
+#clips li:hover{
+	background:-webkit-linear-gradient(top, #777, #666);
+	border-bottom:1px solid #444;
+	border-right:1px solid #444;
+	border-left:1px solid #888;
+	border-top:1px solid #888;
+	box-shadow:0px 2px 5px 1px rgba(0,0,0,0.8);
+}
+
+#preview-container {
+	background:-webkit-linear-gradient(top, #444, #666);;
+	position:absolute;
+	top:5px;
+	right:5px;
+    padding:5px;
+	border-radius:5px;
+	border-top:1px solid #777;
+	border-left:1px solid #777;
+	border-right:1px solid #444;
+	border-bottom:1px solid #444;
+	box-shadow:0px 2px 5px 1px rgba(0,0,0,0.4);
+}
+
+#preview-container .progressbg{
+	width:100%;
+	height:3px;
+	background: #301438;
+}
+
+#preview-container .progress{
+	width:0%;
+	height:3px;
+	background: #e81f3b;
+}
+
+#preview-container .controls{
+	height:24px;
+	padding:3px;
+    display:inline-block;
+    list-style:none;
+    overflow-x:scroll;
+	background:-webkit-linear-gradient(top, #444, #666);
+}
+
+#preview{
+	margin-bottom:-3px;
+	background:#333;
+}	
+
+#slices{
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	height:190px;
+	padding:5px;
+}
+
+#slices li{
+	width:160px;
+	display:inline-block;
+	background:-webkit-linear-gradient(top, #777, #666);
+	border-bottom:1px solid #444;
+	border-right:1px solid #444;
+	border-left:1px solid #888;
+	border-top:1px solid #888;
+	box-shadow:0px 2px 5px 1px rgba(0,0,0,0.8);
+	padding:3px;
+	margin:2px;
+	border-radius:5px;
+}
+
+#clip-text{
+	position:absolute;
+	top:200px;
+	left:200px;
+}
+
+#prev-text{
+	position:absolute;
+	top:100px;
+	right:500px;
+}
+
+#slice-text{
+	position:absolute;
+	bottom:200px;
+	left:100px;
+}
+
+#head {
+    position:fixed;
+    z-index:1000;
+    top:0px;
+    left:0px;
+    right:0px;
+    height:45px;
+    background:#2196F3;
+    text-align:right;
+    cursor:default;
+}
+
+#app-name {
+    font-family: alphaeco; 
+    float:left; padding-left:15px;
+    position: relative
+}
+
+#tabs-content {
+    top: 90px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    
+}
+
+#tabs-content li {
+    position: absolute;
+    top:40px; right:0;
+    bottom:0; left:180px;
+    background:red;
+}
+
+#tabs {
+    margin-left: 300px;
+    margin-top: 0;
+    height: 95%;
+}
+
+#tabs > ul {
+    list-style: none;
+    position: absolute;
+    float:left;
+}
+
+#tabs > ul > li {
+    display:inline;
+}
+
+#dialog {
+    background: #4a4a4a;
+    position: absolute;
+    padding: 15px;
+    border-radius: 7px;
+    min-height:100px;
+}
+
+.content {
+    position: absolute;
+    background: #fff;
+    top: 36px;
+    bottom: 0;
+    right: 0;
+    left: 250px;
+    border: 1px solid;
+}
+
+
+.pinned-widget {
+    border-right: 3px solid green;
+    margin-bottom: 10px;
+    margin-left:10px;
+    background: #434341;
+    min-height: 100px;
+}

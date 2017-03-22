@@ -15,7 +15,7 @@ class App(Gtk.Window):
     def __init__(self):
         Gtk.Window.__init__(self)
         self.set_title("Compendium Manager")
-        self.set_size_request(975, 500)
+        self.maximize()
 
         setup = checkForDatabase()
         self.webview = self.generateWebView(setup)
