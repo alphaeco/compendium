@@ -15,7 +15,6 @@ from compendium.server import filestore
 
 DEV = True
 
-
 if __name__ == '__main__':
     if DEV:
         print(project)

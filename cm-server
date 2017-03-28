@@ -24,8 +24,10 @@ if __name__ == '__main__':
     files.load()
     netfs = filestore.Network()
 
+    print("\n| SERVICE")
     Server = server.Server()
-    Server.add("/network/", files)
+    #Server.add("/network/", files)
     Server.add("/local/", netfs)
+
     Server.run()
 

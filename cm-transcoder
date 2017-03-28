@@ -1,0 +1,53 @@
+#!/usr/bin/python3
+
+"""
+GStreamer-based transcoder script
+"""
+
+import sys
+from os import path
+import json
+
+import gi
+gi.require_version("Gst", "1.0")
+from gi.respository import Glib, Gst
+
+gst.init(None)
+
+
+def create_element(desc):
+    """ Create basic Gstreamer element to add properties """
+
+    el = Gst.ElementFactory.make(desc['name'], None)
+    if el is None:
+        exit("El not defiled")
+
+    return el
+
+
+class EncoderBin(Gst.Bin):
+    """ Base class for AudioEncoder and VideoEncoder. """
+
+    def __init__(self, d):
+        super().__init__(self)
+        self._d = d
+
+        # elements
+        self._q1 = self._make('queue')
+        self._q2 = self._make('queue')
+        self._q3 = self._make('queue')
+        self._enc = self._make(d['encoder'])
+
+        f = d.get('filter')
+        if f in None:
+            self._q2.link(self._enc)
+        else:
+            self._q2.link_filtered(self._enc, self._mine)
+        self._enc.link(self._q3)
+
+def exit(ms):
+    print('{}'.format(ms))
+
+if len(sys.argv) != 2:
+    exit("Usage: cm-transcoder [properties]")
+
