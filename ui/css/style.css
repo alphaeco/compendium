@@ -47,7 +47,6 @@ body {
     background: -webkit-linear-gradient(top, #666, #555);
 }
 
-
 #header {
     position: fixed;
     top: 0;
@@ -58,7 +57,6 @@ body {
     background: -webkit-linear-gradient(bottom, #003B87, #0047A2);
     transition:background 1s;
     box-sizing: border-box !important;
-    border-bottom: 1px solid #444;
     transition: top 1s;
 }
 
@@ -69,7 +67,7 @@ body {
 #header #progress {
 	 margin:0;
     position: absolute;
-    /* background:#075B29; */
+    /* background:#075B29; /* Original theme */ */
     background:transparent;
     height:4px;
     bottom:-5px;
@@ -117,7 +115,7 @@ body {
 }
 
 .content {
-    padding-top: 38px;
+	   margin-top:22px;
 }
 
 .progress {
@@ -150,12 +148,6 @@ body {
     color: #ccc;
 }
 
-#browser_projects_search {
-    padding:3px 7px;
-    margin:15px;
-    width:275px;
-    float:left;
-}
 
 ul {
     list-style: none;
@@ -174,13 +166,40 @@ ul {
     -webkit-animation: added 250ms ease-in-out 0ms;
 }
 
-#preview-container{
+#toolbar {
+    background:red;
+    right:0;left:0;
+    margin-top:22px; height:100px;
+    background: -webkit-linear-gradient(bottom, #003B87, #0047A2);
+    border-bottom: 1px solid #444;
+    display:none; margin-bottom:-22px; overflow:hidden
+}
+
+#toolbar div {
+    height:100%; min-width:100px;
+    float:left; position: relative;
+    list-style: none;
+    display:inline-block;    
+}
+
+#toolbar div h3 {
+    font-size:15px;
+}
+ 
+#toolbar div ul li {
+    display:inline-block;
+    height:55px; padding:4px 7px;
+    cursor:pointer;
+}
+
+#preview-container {
         background:#666;
-        position:absolute;
-        top:55px;
+        position:relative;
+        top:55px; float:right;
         right:20px;
         padding:3px;
-        width:320px;
+        width:480px;
+        height:260px;
         border-radius:5px;
         border-top:1px solid #777;
         border-left:1px solid #777;
@@ -203,6 +222,7 @@ ul {
 }
 
 #preview-container .controls{
+        display:none;
         height:24px;
         padding:3px;
         background:-webkit-linear-gradient(top, #444, #666);
@@ -212,35 +232,33 @@ ul {
     background: #aaa;
 }
 
-#preview{
-        margin-bottom:-3px;
-        background:black;
-} 
-
 #mediaPlayer {
-    background:#075B29;
-    width:720px;
+    background:#000;
     position: absolute;
+    width:100%;
+    min-height:200px;
     left:0; right:20%;
     margin:auto;
-    z-index:100;
-    padding:12px;
-    
+    margin-bottom:-3px;
+
 }
 
-#mediaCanvas {
-        background:#232323;
-        position: absolute;
-        bottom:0; top:0; left:0;
-        height:100%; width:80%;
+#player-info {
+    float:right;
+}
+
+span.group {
+    background:#333;
+    border-radius:6px;
+    padding:3px; margin:2px 14px;
 }
 
 .sidebar {
     position: absolute;
-    right:0; top:22px;
+    right:0; top:60px;
     bottom:0; width:20%;
     border-left:1px solid #171717;
-    z-index:200;
+    z-index:200; display:none;
 }
 
 .sidebar li {
